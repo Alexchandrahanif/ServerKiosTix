@@ -4,12 +4,12 @@ class Controller {
   // GET ALL
   static async getAll(req, res, next) {
     try {
-      const dataAuthor = await Author.findAll();
+      const dataPenulis = await Author.findAll();
 
       res.status(200).json({
         statusCode: 200,
         message: "Berhasil Menampilkan Data Author",
-        dataAuthor,
+        dataPenulis,
       });
     } catch (error) {
       next(error);
@@ -21,20 +21,20 @@ class Controller {
     try {
       const { id } = req.params;
 
-      const dataAuthor = await Author.findOne({
+      const dataPenulis = await Author.findOne({
         where: {
           id,
         },
       });
 
-      if (!dataAuthor) {
-        throw { name: "Id Author Tidak Ditemukan" };
+      if (!dataPenulis) {
+        throw { name: "Id Penulis Tidak Ditemukan" };
       }
 
       res.status(200).json({
         statusCode: 200,
         message: "Berhasil Menampilkan Data Author",
-        dataAuthor,
+        dataPenulis,
       });
     } catch (error) {
       next(error);
@@ -52,12 +52,12 @@ class Controller {
         placeOfBirth,
       };
 
-      const dataAuthor = await Author.create(body);
+      const dataPenulis = await Author.create(body);
 
       res.status(201).json({
         statusCode: 201,
         message: "Berhasil Membuat Data Author Baru",
-        data: dataAuthor,
+        data: dataPenulis,
       });
     } catch (error) {
       next(error);
@@ -70,14 +70,14 @@ class Controller {
       const { id } = req.params;
       const { displayName, birthYear, placeOfBirth } = req.body;
 
-      const dataAuthor = await Author.findOne({
+      const dataPenulis = await Author.findOne({
         where: {
           id,
         },
       });
 
-      if (!dataAuthor) {
-        throw { name: "Id Author Tidak Ditemukan" };
+      if (!dataPenulis) {
+        throw { name: "Id Penulis Tidak Ditemukan" };
       }
 
       const body = {
@@ -102,14 +102,14 @@ class Controller {
     try {
       const { id } = req.params;
 
-      const dataAuthor = await Author.findOne({
+      const dataPenulis = await Author.findOne({
         where: {
           id,
         },
       });
 
-      if (!dataAuthor) {
-        throw { name: "Id Author Tidak Ditemukan" };
+      if (!dataPenulis) {
+        throw { name: "Id Penulis Tidak Ditemukan" };
       }
 
       await Author.destroy({ where: { id } });
