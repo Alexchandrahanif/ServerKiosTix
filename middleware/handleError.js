@@ -39,6 +39,18 @@ const handleError = (err, req, res, next) => {
   } else if (err.name === "Nomor Telepon Sudah Terdaftar") {
     code = 400;
     message = "Nomor Telepon Sudah Terdaftar";
+  } else if (err.name === "Mohon Masukkan Password Lama Anda") {
+    code = 400;
+    message = "Mohon Masukkan Password Lama Anda";
+  } else if (err.name === "Mohon Masukkan Password Baru Anda") {
+    code = 400;
+    message = "Mohon Masukkan Password Baru Anda";
+  } else if (err.name === "Mohon Masukkan Konfirmasi Password Anda") {
+    code = 400;
+    message = "Mohon Masukkan Konfirmasi Password Anda";
+  } else if (err.name === "Password Lama Anda Salah") {
+    code = 400;
+    message = "Password Lama Anda Salah";
   }
 
   // 404
