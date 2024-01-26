@@ -2,6 +2,150 @@ const remove = require("../helper/removeFile");
 const { Book, Category, Author } = require("../models");
 
 class Controller {
+  // GET ALL BY AUTHOR ID
+  static async getAllByAuhorId(req, res, next) {
+    try {
+      const { AuthorId } = req.params;
+      const { limit, page, search, tanggal } = req.query;
+
+      let pagination = {
+        wherr: {
+          AuthorId,
+        },
+        include: [
+          {
+            model: Category,
+          },
+          {
+            model: Author,
+          },
+        ],
+        order: [["createdAt", "DESC"]],
+        limit: limit ? limit : 50,
+      };
+
+      const dataPenulis = await Author.findOne({
+        where: {
+          id: AuthorId,
+        },
+      });
+
+      if (!dataPenulis) {
+        throw { name: "Id Penulis Tidak Ditemukan" };
+      }
+
+      if (limit) {
+        pagination.limit = limit;
+      }
+
+      if (page && limit) {
+        pagination.offset = (page - 1) * limit;
+      }
+
+      if (search) {
+        pagination.where = {
+          [Op.or]: [{ title: { [Op.iLike]: `%${search}%` } }],
+        };
+      }
+
+      if (tanggal) {
+        const pagi = moment().format(`${tanggal} 00:00`);
+        const masuk = moment().format(`${tanggal} 23:59`);
+        pagination.where = {
+          createdAt: {
+            [Op.between]: [pagi, masuk],
+          },
+        };
+      }
+
+      let dataBuku = await Book.findAndCountAll(pagination);
+
+      let totalPage = Math.ceil(dataBuku.count / (limit ? limit : 50));
+
+      res.status(200).json({
+        statusCode: 200,
+        message: "Berhasil Menampilkan Semua Data Buku",
+        data: dataBuku.rows,
+        totaldataBuku: dataBuku.count,
+        totalPage: totalPage,
+      });
+    } catch (error) {
+      next(error);
+    }
+  }
+
+  // GET ALL BY CATEGORY ID
+  static async getAllByCategoryId(req, res, next) {
+    try {
+      const { CategoryId } = req.params;
+      const { limit, page, search, tanggal } = req.query;
+
+      let pagination = {
+        wherr: {
+          CategoryId,
+        },
+        include: [
+          {
+            model: Category,
+          },
+          {
+            model: Author,
+          },
+        ],
+        order: [["createdAt", "DESC"]],
+        limit: limit ? limit : 50,
+      };
+
+      const dataCategory = await Category.findOne({
+        where: {
+          id: CategoryId,
+        },
+      });
+
+      if (!dataCategory) {
+        throw { name: "Id Category Tidak Ditemukan" };
+      }
+
+      if (limit) {
+        pagination.limit = limit;
+      }
+
+      if (page && limit) {
+        pagination.offset = (page - 1) * limit;
+      }
+
+      if (search) {
+        pagination.where = {
+          [Op.or]: [{ title: { [Op.iLike]: `%${search}%` } }],
+        };
+      }
+
+      if (tanggal) {
+        const pagi = moment().format(`${tanggal} 00:00`);
+        const masuk = moment().format(`${tanggal} 23:59`);
+        pagination.where = {
+          createdAt: {
+            [Op.between]: [pagi, masuk],
+          },
+        };
+      }
+
+      let dataBuku = await Book.findAndCountAll(pagination);
+
+      let totalPage = Math.ceil(dataBuku.count / (limit ? limit : 50));
+
+      res.status(200).json({
+        statusCode: 200,
+        message: "Berhasil Menampilkan Semua Data Buku",
+        data: dataBuku.rows,
+        totaldataBuku: dataBuku.count,
+        totalPage: totalPage,
+      });
+    } catch (error) {
+      next(error);
+    }
+  }
+
   // GET ALL
   static async getAll(req, res, next) {
     try {

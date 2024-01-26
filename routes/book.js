@@ -6,6 +6,12 @@ const bookRouter = require("express").Router();
 
 const file = upload();
 
+bookRouter.get("/author/:AuthorId", authentication, Controller.getAllByAuhorId);
+bookRouter.get(
+  "/category/:CategoryId",
+  authentication,
+  Controller.getAllByCategoryId
+);
 bookRouter.get("/", authentication, Controller.getAll);
 bookRouter.get("/:id", authentication, Controller.getOne);
 bookRouter.post("/", file.single("image"), authentication, Controller.create);
