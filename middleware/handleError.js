@@ -75,9 +75,6 @@ const handleError = (err, req, res, next) => {
   } else if (err.name === "TokenExpiredError") {
     code = 401;
     message = "Token Sudah Expired";
-  } else if (err.name === "API KEY Tidak Valid") {
-    code = 401;
-    message = "API KEY Tidak Valid";
   } else if (err.name === "Forbidden") {
     code = 403;
     message = "Maaf, Anda Tidak Memiliki Hak Akses";
