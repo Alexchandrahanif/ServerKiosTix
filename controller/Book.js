@@ -271,7 +271,7 @@ class Controller {
         });
 
         if (!dataAuthor) {
-          throw { name: "Id Author Tidak Ditemukan" };
+          throw { name: "Id Penulis Tidak Ditemukan" };
         } else {
           body.AuthorId = AuthorId;
         }
@@ -352,7 +352,7 @@ class Controller {
         });
 
         if (!dataAuthor) {
-          throw { name: "Id Author Tidak Ditemukan" };
+          throw { name: "Id Penulis Tidak Ditemukan" };
         } else {
           body.AuthorId = AuthorId;
         }
