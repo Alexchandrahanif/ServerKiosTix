@@ -3,8 +3,8 @@ const authentication = require("../middleware/authentication");
 
 const userRouter = require("express").Router();
 
-userRouter.post("/register", authentication, Controller.register);
-userRouter.post("/login", authentication, Controller.login);
+userRouter.post("/register", Controller.register);
+userRouter.post("/login", Controller.login);
 userRouter.get("/profile", authentication, Controller.getProfile);
 userRouter.get("/", authentication, Controller.getAll);
 userRouter.get("/:id", authentication, Controller.getOne);

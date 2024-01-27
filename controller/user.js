@@ -10,14 +10,15 @@ class Controller {
   // REGISTER
   static async register(req, res, next) {
     try {
-      const { username, email, password, phoneNumber, Address } = req.body;
+      const { username, email, password, phoneNumber, address } = req.body;
 
       const body = {
         username,
         email,
         password,
         phoneNumber: formatPhoneNumber(phoneNumber),
-        Address,
+        address,
+        role: "MEMBER",
       };
 
       const dataUser = await User.create(body);
@@ -79,7 +80,11 @@ class Controller {
   // GET ALL
   static async getAll(req, res, next) {
     try {
-      const dataUser = await User.findAll();
+      const dataUser = await User.findAll({
+        attributes: {
+          exclude: "password",
+        },
+      });
 
       res.status(200).json({
         statusCode: 200,
@@ -99,6 +104,9 @@ class Controller {
       const dataUser = await User.findOne({
         where: {
           id,
+        },
+        attributes: {
+          exclude: "password",
         },
       });
 
@@ -125,6 +133,9 @@ class Controller {
         where: {
           id,
         },
+        attributes: {
+          exclude: "password",
+        },
       });
 
       if (!dataUser) {
@@ -145,7 +156,7 @@ class Controller {
   static async update(req, res, next) {
     try {
       const { id } = req.params;
-      const { username, phoneNumber, Address } = req.body;
+      const { username, phoneNumber, address } = req.body;
 
       const dataUser = await User.findOne({
         where: {
@@ -160,7 +171,7 @@ class Controller {
       const body = {
         username,
         phoneNumber: formatPhoneNumber(phoneNumber),
-        Address,
+        address,
       };
 
       await User.update(body, { where: { id } });
@@ -207,12 +218,16 @@ class Controller {
         throw { name: "Mohon Masukkan Konfirmasi Password Anda" };
       }
 
-      if (!comparePassword(password, dataUser.password)) {
+      if (confirmPassword !== newPassword) {
+        throw { name: "Konfirmasi Password Anda Tidak Cocok" };
+      }
+
+      if (!comparePassword(oldPassword, dataUser.password)) {
         throw { name: "Password Lama Anda Salah" };
       }
 
       await User.update(
-        { password: hashingPassword(oldPassword) },
+        { password: hashingPassword(newPassword) },
         { where: { id } }
       );
 
