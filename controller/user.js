@@ -70,7 +70,7 @@ class Controller {
         statusCode: 200,
         message: `Selamat Datang ${dataUser.username}`,
         authorization: authorization,
-        username: dataUser.displayName,
+        username: dataUser.username,
       });
     } catch (error) {
       next(error);
