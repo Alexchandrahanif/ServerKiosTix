@@ -175,6 +175,18 @@ _200 - OK_
   }
   ```
 
+  
+_404 - Bad Request_
+
+- Body
+  ```json
+  {
+    "statusCode": 404,
+    "message": "String"
+  }
+  ```
+
+
 ## 5. GET /user/profile
 
 #### Description
@@ -267,6 +279,16 @@ _400 - Bad Request_
   ```json
   {
     "statusCode": 400,
+    "message": "String"
+  }
+  ```
+
+_404 - Bad Request_
+
+- Body
+  ```json
+  {
+    "statusCode": 404,
     "message": "String"
   }
   ```
@@ -379,12 +401,13 @@ _200 - Success_
   }
   ```
 
-_400 - Bad Request_
+
+_404 - Bad Request_
 
 - Body
   ```json
   {
-    "statusCode": 400,
+    "statusCode": 404,
     "message": "String"
   }
   ```
