@@ -8,7 +8,7 @@ List of Available Endpoints:
 - `PATCH /category/:id`
 - `DELETE /category/:id`
 
-## 1. POST /category/register
+## 1. POST /category
 
 #### Description
 
@@ -112,7 +112,7 @@ _200 - OK_
   }
   ```
   
-_404 - Bad Request_
+_404 - Not Found_
 
 - Body
   ```json
@@ -179,7 +179,7 @@ _400 - Bad Request_
   }
   ```
 
-_404 - Bad Request_
+_404 - Not Found_
 
 - Body
   ```json
@@ -238,7 +238,7 @@ _400 - Bad Request_
   }
   ```
 
-_404 - Bad Request_
+_404 - Not Found_
 
 - Body
   ```json

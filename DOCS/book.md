@@ -2,23 +2,19 @@
 
 List of Available Endpoints:
 
-- `POST /user/register`
-- `POST /user/loginEmail`
-- `POST /user`
-- `GET /user/`
-- `GET /user/profile`
-- `GET /user/:id`
-- `PATCH /user/:id`
-- `PATCH /user/password/:id`
-- `DELETE /user/:id`
+- `POST /book`
+- `GET /book/category/:CategoryId`
+- `GET /book/author/:AuthorId`
+- `GET /book/`
+- `GET /book/:id`
+- `PATCH /book/:id`
+- `DELETE /book/:id`
 
-## 1. POST /user/register
+## 1. POST /book
 
 #### Description
 
-- Create a new user data
-- Email Must be Unique
-- Phone Number Must be Unique
+- Create a new book data
 
 #### Request
 
@@ -26,12 +22,20 @@ List of Available Endpoints:
 - Body
   ```json
   {
-    "username": "string",
-    "email": "string",
-    "password": "string",
-    "phoneNumber": "string",
-    "address": "string",
-    "role": "string"
+    "title": "string",
+    "publicationYear": "string",
+    "genre": "string",
+    "countPage": Integer,
+    "rating": Float,
+    "AuthorId": "uuid",
+    "CategoryId": "uuid",
+  }
+  ```
+
+- File
+  ```json
+  {
+    "image": "string",
   }
   ```
 
@@ -44,7 +48,8 @@ _201 - Created_
   ```json
   {
     "statusCode": 201,
-    "message": "Selamat Anda Berhasil Register"
+    "message": "Berhasil Membuat Data Buku Baru",
+    "data": ["array"],
   }
   ```
 
@@ -55,68 +60,58 @@ _400 - Bad Request_
   {
     "statusCode": 400,
     "message": "String",
+  }
+  ```
+
+## 2. GET /user/category/:CategoryId
+
+#### Description
+
+- Get All Data Books By CategoryId
+- Req Query (limir, page, serach, tanggal) not Required
+- Format Query Date (2024-01-27)
+
+#### Request
+
+- Headers
+  ```json
+  {
+    "authorization": "String"
+  }
+  ```
+- Query
+  ```json
+  {
+    "limit": Integer,
+    "page": Integer,
+    "search": "String",
+    "tanggal": "date"
+  }
+  ```
+
+#### Response
+
+_200 - OK_
+
+- Body
+  ```json
+  {
+    "statusCode": 200,
+    "message": "Berhasil Menampilkan Semua Data Buku",
     "data": ["array"],
+    "totalDataBuku" : Integer,
+    "totalPage" : Integer
   }
   ```
 
-## 2. POST /user/login
+
+## 3. GET /user/author/:AuthorId
 
 #### Description
 
-- Login with email and password
-- Email must be format Email
-
-#### Request
-
-- Body
-
-```json
-{
-  "email": "String",
-  "password": "String",
-}
-```
-
-#### Response
-
-_200 - Ok_
-
-- Body
-  ```json
-  {
-    "statusCode": 200,
-    "message": "String",
-    "authorization": "Selamat Datang {username}",
-    "username": "String",
-  }
-  ```
-
-_400 - Bad Request_
-
-- Body
-  ```json
-  {
-    "statusCode": 400,
-    "message": "String"
-  }
-  ```
-
-_404 - Data Not Found_
-
-- Body
-  ```json
-  {
-    "statusCode": 404,
-    "message": "String"
-  }
-  ```
-
-## 3. GET /user
-
-#### Description
-
-- Get All Data Users
-
+- Get All Data Books By AuthorId
+- Req Query (limir, page, serach, tanggal) not Required
+- Format Query Date (2024-01-27)
 
 #### Request
 
@@ -126,7 +121,15 @@ _404 - Data Not Found_
     "authorization": "String"
   }
   ```
-
+- Query
+  ```json
+  {
+    "limit": Integer,
+    "page": Integer,
+    "search": "String",
+    "tanggal": "date"
+  }
+  ```
 
 #### Response
 
@@ -136,16 +139,61 @@ _200 - OK_
   ```json
   {
     "statusCode": 200,
-    "message" : "Berhasil Menampilkan Data User",
+    "message": "Berhasil Menampilkan Semua Data Buku",
     "data": ["array"],
+    "totalDataBuku" : Integer,
+    "totalPage" : Integer
   }
   ```
 
-## 4. GET /user/:id
+
+## 4. GET /user
 
 #### Description
 
-- Get One Data User With Request Params Id
+- Get All Data Books
+- Req Query (limir, page, serach, tanggal) not Required
+- Format Query Date (2024-01-27)
+
+#### Request
+
+- Headers
+  ```json
+  {
+    "authorization": "String"
+  }
+  ```
+- Query
+  ```json
+  {
+    "limit": Integer,
+    "page": Integer,
+    "search": "String",
+    "tanggal": "date"
+  }
+  ```
+
+#### Response
+
+_200 - OK_
+
+- Body
+  ```json
+  {
+    "statusCode": 200,
+    "message": "Berhasil Menampilkan Semua Data Buku",
+    "data": ["array"],
+    "totalDataBuku" : Integer,
+    "totalPage" : Integer
+  }
+  ```
+
+
+## 5. GET /book/:id
+
+#### Description
+
+- Get One Data Book With Request Params Id
 
 #### Request
 
@@ -170,185 +218,8 @@ _200 - OK_
   ```json
   {
     "statusCode": 200,
-    "message" : "Berhasil Menampilkan Data User",
+    "message" : "Berhasil Menampilkan Data Buku",
     "data": {object}
-  }
-  ```
-
-  
-_404 - Not Found_
-
-- Body
-  ```json
-  {
-    "statusCode": 404,
-    "message": "String"
-  }
-  ```
-
-
-## 5. GET /user/profile
-
-#### Description
-
-- Get One Data User (Profile) With Request User id
-
-#### Request
-
-- User
-  ```json
-  {
-    "id": "uuid"
-  }
-  ```
-
-- Headers
-  ```json
-  {
-    "authorization": "String"
-  }
-  ```
-
-#### Response
-
-_200 - OK_
-
-- Body
-  ```json
-  {
-    "statusCode": 200,
-    "message" : "Berhasil Menampilkan Data User",
-    "data": {object}
-  }
-  ```
-
-## 6. PATCH /user/:id
-
-#### Description
-
-- Update Data User
-
-#### Request
-
-- Headers
-
-  ```json
-  {
-    "authorization": "String"
-  }
-  ```
-
-- Params
-
-  ```json
-  {
-    "id": "uuid"
-  }
-  ```
-
-
-- Body
-
-  ```json
-  {
-    "username": "string",
-    "email": "string",
-    "password": "string",
-    "phoneNumber": "string",
-    "address": "string",
-    "role": "string"
-  }
-  ```
-
-#### Response
-
-_200 - Success_
-
-- Body
-
-  ```json
-  {
-    "statusCode": 200,
-    "message": "Berhasil Memperbaharui Data User"
-  }
-  ```
-
-_400 - Bad Request_
-
-- Body
-  ```json
-  {
-    "statusCode": 400,
-    "message": "String"
-  }
-  ```
-
-_404 - Not Found_
-
-- Body
-  ```json
-  {
-    "statusCode": 404,
-    "message": "String"
-  }
-  ```
-
-
-## 7. PATCH /user/password/:id
-
-#### Description
-
-- Update Password User
-
-#### Request
-
-- Headers
-
-  ```json
-  {
-    "authorization": "String"
-  }
-  ```
-
-- Params
-
-  ```json
-  {
-    "id": "uuid"
-  }
-  ```
-
-
-- Body
-
-  ```json
-  {
-    "oldPassword": "string",
-    "newPassword": "string",
-    "confirmPassword": "string",
-  }
-  ```
-
-#### Response
-
-_200 - Success_
-
-- Body
-
-  ```json
-  {
-    "statusCode": 200,
-    "message": "Berhasil Memperbaharui Password User"
-  }
-  ```
-
-_400 - Bad Request_
-
-- Body
-  ```json
-  {
-    "statusCode": 400,
-    "message": "String"
   }
   ```
   
@@ -363,11 +234,90 @@ _404 - Not Found_
   ```
 
 
-## 8. DELETE /user/:id
+## 6. PATCH /book/:id
 
 #### Description
 
-- Delete User
+- Update Data book
+
+#### Request
+
+- Headers
+
+  ```json
+  {
+    "authorization": "String"
+  }
+  ```
+
+- Params
+
+  ```json
+  {
+    "id": "uuid"
+  }
+  ```
+
+- Body
+  ```json
+  {
+    "title": "string",
+    "publicationYear": "string",
+    "genre": "string",
+    "countPage": Integer,
+    "rating": Float,
+    "AuthorId": "uuid",
+    "CategoryId": "uuid",
+  }
+  ```
+
+- File
+  ```json
+  {
+    "image": "string",
+  }
+  ```
+
+
+#### Response
+
+_200 - Success_
+
+- Body
+
+  ```json
+  {
+    "statusCode": 200,
+    "message": "Berhasil Memperbaharui Data Buku"
+  }
+  ```
+
+_400 - Bad Request_
+
+- Body
+  ```json
+  {
+    "statusCode": 400,
+    "message": "String"
+  }
+  ```
+
+_404 - Not Found_
+
+- Body
+  ```json
+  {
+    "statusCode": 404,
+    "message": "String"
+  }
+  ```
+
+
+## 7. DELETE /book/:id
+
+#### Description
+
+- Delete book
 
 #### Request
 
@@ -397,10 +347,19 @@ _200 - Success_
   ```json
   {
     "statusCode": 200,
-    "message": "Berhasil Menghapus Data User"
+    "message": "Berhasil Menghapus Data Buku"
   }
   ```
 
+_400 - Bad Request_
+
+- Body
+  ```json
+  {
+    "statusCode": 400,
+    "message": "String"
+  }
+  ```
 
 _404 - Not Found_
 

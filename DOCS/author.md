@@ -8,7 +8,7 @@ List of Available Endpoints:
 - `PATCH /author/:id`
 - `DELETE /author/:id`
 
-## 1. POST /author/register
+## 1. POST /author
 
 #### Description
 
@@ -113,8 +113,8 @@ _200 - OK_
     "data": {object}
   }
   ```
-  
-_404 - Bad Request_
+
+_404 - Not Found_
 
 - Body
   ```json
@@ -183,7 +183,7 @@ _400 - Bad Request_
   }
   ```
 
-_404 - Bad Request_
+_404 - Not Found_
 
 - Body
   ```json
@@ -242,7 +242,7 @@ _400 - Bad Request_
   }
   ```
 
-_404 - Bad Request_
+_404 - Not Found_
 
 - Body
   ```json
