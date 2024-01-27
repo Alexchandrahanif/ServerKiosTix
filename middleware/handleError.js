@@ -54,6 +54,9 @@ const handleError = (err, req, res, next) => {
   } else if (err.name === "Konfirmasi Password Anda Tidak Cocok") {
     code = 400;
     message = "Konfirmasi Password Anda Tidak Cocok";
+  } else if (err.name === "Masukkan Rating 1 sampai 5") {
+    code = 400;
+    message = "Masukkan Rating 1 sampai 5";
   }
 
   // 404

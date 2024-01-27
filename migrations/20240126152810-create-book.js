@@ -22,9 +22,6 @@ module.exports = {
       publicationYear: {
         type: Sequelize.STRING,
       },
-      genre: {
-        type: Sequelize.STRING,
-      },
       countPage: {
         type: Sequelize.INTEGER,
       },

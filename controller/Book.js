@@ -259,6 +259,10 @@ class Controller {
         image: req.file ? req.file.path : "",
       };
 
+      if (rating > 5 || rating < 1) {
+        throw { name: "Masukkan Rating 1 sampai 5" };
+      }
+
       if (AuthorId) {
         const dataAuthor = await Author.findOne({
           where: {
@@ -318,6 +322,10 @@ class Controller {
           id,
         },
       });
+
+      if (rating > 5 || rating < 1) {
+        throw { name: "Masukkan Rating 1 sampai 5" };
+      }
 
       if (!dataBuku) {
         throw { name: "Id Buku Tidak Ditemukan" };
@@ -390,6 +398,7 @@ class Controller {
         throw { name: "Id Buku Tidak Ditemukan" };
       }
 
+      remove(dataBuku.image);
       await Book.destroy({ where: { id } });
 
       res.status(200).json({

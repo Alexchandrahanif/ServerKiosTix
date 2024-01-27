@@ -15,7 +15,6 @@ module.exports = (sequelize, DataTypes) => {
     {
       title: DataTypes.STRING,
       publicationYear: DataTypes.STRING,
-      genre: DataTypes.STRING,
       countPage: DataTypes.INTEGER,
       rating: DataTypes.FLOAT,
       image: DataTypes.STRING,
