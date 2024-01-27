@@ -8,7 +8,7 @@ class Controller {
 
       res.status(200).json({
         statusCode: 200,
-        message: "Berhasil Menampilkan Data Author",
+        message: "Berhasil Menampilkan Data Penulis",
         dataPenulis,
       });
     } catch (error) {
@@ -33,7 +33,7 @@ class Controller {
 
       res.status(200).json({
         statusCode: 200,
-        message: "Berhasil Menampilkan Data Author",
+        message: "Berhasil Menampilkan Data Penulis",
         dataPenulis,
       });
     } catch (error) {
@@ -56,7 +56,7 @@ class Controller {
 
       res.status(201).json({
         statusCode: 201,
-        message: "Berhasil Membuat Data Author Baru",
+        message: "Berhasil Membuat Data Penulis Baru",
         data: dataPenulis,
       });
     } catch (error) {
@@ -90,7 +90,7 @@ class Controller {
 
       res.status(200).json({
         statusCode: 200,
-        message: "Berhasil Memperbaharui Data Author",
+        message: "Berhasil Memperbaharui Data Penulis",
       });
     } catch (error) {
       next(error);
@@ -116,7 +116,7 @@ class Controller {
 
       res.status(200).json({
         statusCode: 200,
-        message: "Berhasil Menghapus Data Author",
+        message: "Berhasil Menghapus Data Penulis",
       });
     } catch (error) {
       next(error);
