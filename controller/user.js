@@ -91,6 +91,31 @@ class Controller {
     }
   }
 
+  // GET PROFILE
+  static async getProfile(req, res, next) {
+    try {
+      const { id } = req.user;
+
+      const dataUser = await User.findOne({
+        where: {
+          id,
+        },
+      });
+
+      if (!dataUser) {
+        throw { name: "Id User Tidak Ditemukan" };
+      }
+
+      res.status(200).json({
+        statusCode: 200,
+        message: "Berhasil Menampilkan Data User",
+        dataUser,
+      });
+    } catch (error) {
+      next(error);
+    }
+  }
+
   // GET ONE
   static async getOne(req, res, next) {
     try {

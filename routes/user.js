@@ -5,6 +5,7 @@ const userRouter = require("express").Router();
 
 userRouter.post("/register", authentication, Controller.register);
 userRouter.post("/login", authentication, Controller.login);
+userRouter.get("/profile", authentication, Controller.getProfile);
 userRouter.get("/", authentication, Controller.getAll);
 userRouter.get("/:id", authentication, Controller.getOne);
 userRouter.patch("/password/:id", authentication, Controller.updatePassword);
