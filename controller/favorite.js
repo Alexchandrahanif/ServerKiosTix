@@ -31,12 +31,31 @@ class Controller {
   // CREATE
   static async create(req, res, next) {
     try {
-      const { UserId, BookId } = req.body;
+      const { BookId } = req.body;
 
       const body = {
-        UserId,
+        UserId: req.user.id,
         BookId,
       };
+
+      const data = await Favorites.findOne({
+        where: {
+          UserId: req.user.id,
+          BookId,
+        },
+        include: [
+          {
+            model: Book,
+          },
+        ],
+      });
+
+      if (data) {
+        throw {
+          name: "Buku Sudah Terdaftar DI Favorite",
+          buku: data.Book.title,
+        };
+      }
 
       const dataFavorite = await Favorites.create(body);
 

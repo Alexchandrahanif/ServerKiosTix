@@ -57,6 +57,9 @@ const handleError = (err, req, res, next) => {
   } else if (err.name === "Masukkan Rating 1 sampai 5") {
     code = 400;
     message = "Masukkan Rating 1 sampai 5";
+  } else if (err.name === "Buku Sudah Terdaftar DI Favorite") {
+    code = 400;
+    message = `Buku ${err.buku} Sudah Terdaftar DI Favorite`;
   }
 
   // 404
@@ -72,6 +75,9 @@ const handleError = (err, req, res, next) => {
   } else if (err.name === "Id Buku Tidak Ditemukan") {
     code = 404;
     message = "Id Buku Tidak Ditemukan";
+  } else if (err.name === "Id Favorite Tidak Ditemukan") {
+    code = 404;
+    message = "Id Favorite Tidak Ditemukan";
   }
 
   // 401 dan 403
