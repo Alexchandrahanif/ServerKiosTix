@@ -9,7 +9,7 @@ class Controller {
       res.status(200).json({
         statusCode: 200,
         message: "Berhasil Menampilkan Data Category",
-        dataCategory,
+        data: dataCategory,
       });
     } catch (error) {
       next(error);
@@ -34,7 +34,7 @@ class Controller {
       res.status(200).json({
         statusCode: 200,
         message: "Berhasil Menampilkan Data Category",
-        dataCategory,
+        data: dataCategory,
       });
     } catch (error) {
       next(error);

@@ -230,7 +230,7 @@ class Controller {
       res.status(200).json({
         statusCode: 200,
         message: "Berhasil Menampilkan Data Buku",
-        dataBuku,
+        data: dataBuku,
       });
     } catch (error) {
       next(error);
