@@ -1,26 +1,34 @@
 [
   {
+    "id": "c5a88157-0143-4c2e-a309-2bec68cf6b87",
     "name": "Fiksi"
   },
   {
+    "id": "379e7ce8-298e-49bf-9a69-a78bfbb6498a",
     "name": "Non-Fiksi"
   },
   {
+    "id": "399a2575-9efd-4bed-829c-a8649be32252",
     "name": "Biografi"
   },
   {
+    "id": "e0848180-308c-4f2d-b536-88b3145de0eb",
     "name": "Sejarah"
   },
   {
+    "id": "cc6c8f2e-1916-4f90-a50f-7650b423befe",
     "name": "Ilmu Pengetahuan"
   },
   {
+    "id": "ac4fe787-d228-440c-ba29-df5cc192402f",
     "name": "Teknologi"
   },
   {
+    "id": "e96b7936-ac44-45bf-8602-cd605153ffaf",
     "name": "Ekonomi dan Bisnis"
   },
   {
+    "id": "f1d0d0e0-a110-419f-886a-baaa61ce3a0e",
     "name": "Kesehatan "
   }
 ]

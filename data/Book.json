@@ -1,0 +1,84 @@
+[
+  {
+    "title": "A Tale of Two Cities",
+    "publicationYear": "1859",
+    "countPage": "143",
+    "rating": "5",
+    "image": "https://magetan.satujam.com/wp-content/uploads/2015/06/book-cover-637941699.jpg?strip=all&lossy=1&ssl=1",
+    "CategoryId": "e0848180-308c-4f2d-b536-88b3145de0eb",
+    "AuthorId": "a6297859-55f7-4c3b-a3fa-f0c354d5d82b"
+  },
+  {
+    "title": "The Lord of the Rings",
+    "publicationYear": "1954",
+    "countPage": "180",
+    "rating": "5",
+    "image": "https://magetan.satujam.com/wp-content/uploads/2015/06/72.jpg?strip=all&lossy=1&ssl=1",
+    "CategoryId": "e0848180-308c-4f2d-b536-88b3145de0eb",
+    "AuthorId": "194c2901-274d-4f1c-be4d-62d1a1f0a573"
+  },
+  {
+    "title": "The Hobbit",
+    "publicationYear": "1937",
+    "countPage": "220",
+    "rating": "5",
+    "image": "https://magetan.satujam.com/wp-content/uploads/2015/06/book-cover-637941699.jpg?strip=all&lossy=1&ssl=1",
+    "CategoryId": "e0848180-308c-4f2d-b536-88b3145de0eb",
+    "AuthorId": "194c2901-274d-4f1c-be4d-62d1a1f0a573"
+  },
+  {
+    "title": "Dream of the Red Chamber",
+    "publicationYear": "1754",
+    "countPage": "125",
+    "rating": "4",
+    "image": "https://magetan.satujam.com/wp-content/uploads/2015/06/f67e94f79001ad5c55720d43d0ba6a83.jpg?strip=all&lossy=1&ssl=1",
+    "CategoryId": "e0848180-308c-4f2d-b536-88b3145de0eb",
+    "AuthorId": "fa94be66-49dd-4c5e-b73f-8296da6d6500"
+  },
+
+  {
+    "title": "And There Were None",
+    "publicationYear": "1719",
+    "countPage": "130",
+    "rating": "5",
+    "image": "https://magetan.satujam.com/wp-content/uploads/2015/06/and_then_there_were_none-pb-c.jpg?strip=all&lossy=1&ssl=1",
+    "CategoryId": "e0848180-308c-4f2d-b536-88b3145de0eb",
+    "AuthorId": "5c0f982d-8a4d-4e08-b191-525cd0eea0b9"
+  },
+  {
+    "title": "The Lion, the Witch and the Wardrobe",
+    "publicationYear": "1940",
+    "countPage": "180",
+    "rating": "4",
+    "image": "https://magetan.satujam.com/wp-content/uploads/2015/06/lionWitchWardrobe.jpg?strip=all&lossy=1&ssl=1",
+    "CategoryId": "e0848180-308c-4f2d-b536-88b3145de0eb",
+    "AuthorId": "5c0f982d-8a4d-4e08-b191-525cd0eea0b9"
+  },
+  {
+    "title": "The Little Prince",
+    "publicationYear": "1972",
+    "countPage": "190",
+    "rating": "3",
+    "image": "https://magetan.satujam.com/wp-content/uploads/2015/06/9780141185620.jpg?strip=all&lossy=1&ssl=1",
+    "CategoryId": "e0848180-308c-4f2d-b536-88b3145de0eb",
+    "AuthorId": "5c0f982d-8a4d-4e08-b191-525cd0eea0b9"
+  },
+  {
+    "title": "Anne of Green Gables",
+    "publicationYear": "1719",
+    "countPage": "230",
+    "rating": "4",
+    "image": "https://magetan.satujam.com/wp-content/uploads/2015/06/enhanced-buzz-15972-1360182929-6.jpg?strip=all&lossy=1&ssl=1",
+    "CategoryId": "e0848180-308c-4f2d-b536-88b3145de0eb",
+    "AuthorId": "5c0f982d-8a4d-4e08-b191-525cd0eea0b9"
+  },
+  {
+    "title": "Charlotte’s Web",
+    "publicationYear": "1952",
+    "countPage": "190",
+    "rating": "4",
+    "image": "https://magetan.satujam.com/wp-content/uploads/2015/06/buku-best-seller.gif?strip=all&lossy=1&ssl=1",
+    "CategoryId": "e0848180-308c-4f2d-b536-88b3145de0eb",
+    "AuthorId": "5c0f982d-8a4d-4e08-b191-525cd0eea0b9"
+  }
+]

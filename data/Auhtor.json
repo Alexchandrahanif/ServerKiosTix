@@ -1,27 +1,38 @@
 [
   {
-    "displayName": "Pramoedya Ananta Toer",
-    "birthYear": "1980",
-    "placeOfBirth": "Yogyakarta"
+    "id": "a6297859-55f7-4c3b-a3fa-f0c354d5d82b",
+    "displayName": "Charles Dickens",
+    "birthYear": "1829",
+    "placeOfBirth": "London"
   },
   {
-    "displayName": "Habiburrahman El Shirazy",
-    "birthYear": "1982",
-    "placeOfBirth": "Jakarta"
+    "id": "194c2901-274d-4f1c-be4d-62d1a1f0a573",
+    "displayName": "J.R.R.Tolkien",
+    "birthYear": "1907",
+    "placeOfBirth": "Paris"
   },
   {
-    "displayName": "Dee Lestari",
-    "birthYear": "1989",
-    "placeOfBirth": "Surabaya"
+    "id": "fa94be66-49dd-4c5e-b73f-8296da6d6500",
+    "displayName": "Cao Xueqin",
+    "birthYear": "1724",
+    "placeOfBirth": "Tiongkok"
   },
   {
-    "displayName": "Andrea Hirata",
-    "birthYear": "1992",
-    "placeOfBirth": "Bandung"
+    "id": "5c0f982d-8a4d-4e08-b191-525cd0eea0b9",
+    "displayName": "Agatha Christie",
+    "birthYear": "1892",
+    "placeOfBirth": "London"
   },
   {
-    "displayName": "Tere Liye",
-    "birthYear": "1998",
-    "placeOfBirth": "Jakarta"
+    "id": "78fb174e-b3b3-4aab-8ed6-1c060f2819e7",
+    "displayName": "Rider Haggard",
+    "birthYear": "1887",
+    "placeOfBirth": "New York"
+  },
+  {
+    "id": "d29964de-7cae-4ff4-bd4b-b2df03eec348",
+    "displayName": "Le Petit Prince",
+    "birthYear": "1887",
+    "placeOfBirth": "Paris"
   }
 ]
