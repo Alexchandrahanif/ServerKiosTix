@@ -71,6 +71,7 @@ class Controller {
         message: `Selamat Datang ${dataUser.username}`,
         authorization: authorization,
         username: dataUser.username,
+        role: dataUser.role,
       });
     } catch (error) {
       next(error);
