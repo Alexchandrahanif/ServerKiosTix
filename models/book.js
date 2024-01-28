@@ -6,8 +6,14 @@ module.exports = (sequelize, DataTypes) => {
       Book.belongsTo(models.Author, {
         foreignKey: "AuthorId",
       });
+
       Book.belongsTo(models.Category, {
         foreignKey: "CategoryId",
+      });
+
+      Book.belongsToMany(models.User, {
+        through: models.Favorites,
+        foreignKey: "UserId",
       });
     }
   }
